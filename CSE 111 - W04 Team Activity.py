@@ -2,19 +2,19 @@ import requests
 
 # URL that the requests module is going to check.
 
-url = 'https://swapi.dev/api/planets'
+url = 'https://swapi.dev/api/planets/'
 
 # Request information from URL.
 
-reply = requests.get(url)
+response = requests.get(url)
 
 # Check request status.
 
-if reply.status_code == 200:
+if response.status_code == 200:
 
     # Successful request, transfer data to dictionary.
 
-    data = reply.json()
+    data = response.json()
 
     # Count number of planets in dictionary.
 
@@ -24,9 +24,6 @@ if reply.status_code == 200:
 
     population = 0
 
-    # Count planets with surface water.
-
-    water = 0
 
     # Retrieve data about each planet.
 
@@ -38,14 +35,13 @@ if reply.status_code == 200:
 
         # Retrieve data for a planet.
 
-        reply = requests.get(url)
+        response = requests.get(url)
 
-        if reply.status_code == 200:
-            planet = reply.json()
+        if response.status_code == 200:
+            planet = response.json()
 
             text_pop = planet['population']
-            text_water = planet['surface_water']
-            print(planet['name'], 'pop:', text_pop, 'water:', text_water)
+            print(planet['name'], ':', text_pop)
 
             # Check populations for real numbers.
 
@@ -53,23 +49,19 @@ if reply.status_code == 200:
                 pop = int(text_pop)
                 population += pop
 
-            if text_water.isnumeric():
-                percent = int(text_water)
-                if percent > 0:
-                    water += 1
         else:
 
             # Request failed, print status code.
 
-            print('Request failed with status code:', reply.status_code)
+            print('Request failed with status code:', response.status_code)
 
     # Print total population of galaxy and number of planets with surface water.
 
-    print(f'Population {population}, Water {water}')
+    print(f'Population {population}')
     print()
 
 else:
 
     # Original request failed, print status code.
 
-    print('Request failed with status code:', reply.status_code)
+    print('Request failed with status code:', response.status_code)
