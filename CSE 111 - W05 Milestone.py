@@ -41,7 +41,6 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     draw_ground(canvas, scene_left, scene_top, scene_right, scene_bottom)
     draw_clouds(canvas, scene_left, scene_top, scene_right, scene_bottom)
     draw_grass(canvas, scene_left, scene_top, scene_right, scene_bottom)
-
 # Define Sky.
 def draw_sky(canvas, scene_left, scene_top, scene_right, scene_bottom):
     canvas.create_rectangle(scene_left, scene_top,
@@ -101,7 +100,6 @@ def draw_clouds(canvas, scene_left, scene_top, scene_right, scene_bottom):
     canvas.create_oval(scene_left + 250, scene_top + 75,
             scene_right - 400, scene_bottom - 425,
             outline="#EDF6F6", width=2, fill="#FFFFFF")
-
 # Define Grass
 def draw_grass(canvas, scene_left, scene_top, scene_right, scene_bottom):
     canvas.create_rectangle(scene_left + 0, scene_top + 350,
