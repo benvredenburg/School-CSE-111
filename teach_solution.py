@@ -1,99 +1,90 @@
-import csv
-import math
-from datetime import date, datetime
+import requests
+
+
+def read_text_file(pathname):
+    """Open a text file and read and return all the text from the file."""
+    text = ""
+    with open(pathname, mode="rt", encoding="utf-8", newline="\n") as inf:
+        text = inf.read()
+    return text
+
+
+def write_text_file(pathname, text):
+    """Open a text file and write text to it."""
+    with open(pathname, mode="wt", encoding="utf-8", newline="\n") as outf:
+        outf.write(text)
+
+
+def test_io():
+    """Test the write_text_file and read_text_file functions to ensure
+    they correctly write and read unicode characters besides English.
+    """
+    # Write text that contains Engligh, Greek,
+    # and Deseret characters to a file.
+    matt_6_14 = \
+"""For if ye forgive men their trespasses,
+your heavenly Father will also forgive you.
+ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν,
+ἀφήσει καὶ ὑμῖν ὁ πατὴρ ὑμῶν ὁ οὐράνιος.
+𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 𐑋𐐯𐑌 𐑄𐐯𐑉 𐐻𐑉𐐯𐑅𐐹𐐰𐑅𐐮𐑆,
+𐐷𐐫𐑉 𐐸𐐯𐑂𐐲𐑌𐑊𐐨 𐐙𐐱𐑄𐐲𐑉 𐐶𐐮𐑊 𐐫𐑊𐑅𐐬 𐑁𐐲𐑉𐑀𐐮𐑂 𐐷𐐭.
+"""
+    write_text_file("forgive.txt", matt_6_14)
+
+    # Read the text from the file that was just written
+    # and print the text to verify that it is correct.
+    text = read_text_file("forgive.txt")
+    print(text)
+
+
+def make_text_filename(basename, lang):
+    """Build and return a filename for a text file from a basename
+    and a language abbreviation. For example, if basename is "sermon"
+    and lang is "es", this function will return "sermon_es.txt".
+    """
+    return f"{basename}_{lang}.txt"
+
+
+def translate(text, src_lang, targ_lang):
+    """Send text to an online machine translation
+    service and return the translated text.
+    """
+    endpoint = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+
+    args = {
+        # The API key should remain private. Do not save
+        # it to a public repository or public web site.
+        "key" : "The API key is in your I-Learn course.",
+
+        "lang" : f"{src_lang}-{targ_lang}"
+    }
+
+    transl = ""
+    response = requests.post(endpoint, params=args, data={"text":text})
+    if response.status_code == 200:
+        # If the request was successful, retrieve
+        # the translated text from the response.
+        data = response.json()
+        transl = data["text"][0]
+    else:
+        # If the request was not successful, print the status code.
+        print(response.status_code)
+
+    return transl
 
 
 def main():
-    # Print headers for the six columns.
-    print("Gender,Age (years),Weight (kg),Height (cm),BMI,BMR")
+    src_lang = "en"
+    targ_lang = "pt"
+    basenames = ["sermon", "upward", "numsys"]
+    for name in basenames:
+        inname = make_text_filename(name, src_lang)
+        orig_text = read_text_file(inname)
 
-    # Open the CSV file fitness.csv
-    with open("fitness.csv", "rt") as fitness:
+        transl_text = translate(orig_text, src_lang, targ_lang)
 
-        # Use the standard csv module to get
-        # a reader object for the CSV file.
-        reader = csv.reader(fitness)
-
-        # The first line of the CSV file contains headings
-        # and not fitness data, so this statement skips
-        # the first line of the CSV file.
-        next(reader)
-
-        # Process each row in the CSV file.
-        for row in reader:
-
-                # From the current row of the CSV file,
-                # retrieve a person's gender from column 0.
-                gender = row[0]
-
-                # From the current row of the CSV file, retrieve a
-                # person's birthdate as a string. Call the compute_age
-                # function which convert the string to a date and then
-                # compute and return a person's age in years.
-                years = compute_age(row[1])
-
-                # From the current row of the CSV file, retrieve a
-                # person's weight in pounds and height in inches. Then
-                # convert the person's weight from pounds to kilograms
-                # and their height from inches to centimeters.
-                pounds = float(row[2])
-                inches = float(row[3])
-                kg = round(kg_from_lb(pounds), 2)
-                cm = round(cm_from_in(inches), 1)
-
-                # For the current row, compute the person's
-                # body mass index and basal metabolic rate.
-                bmi = round(body_mass_index(kg, cm), 1)
-                bmr = round(basal_metabolic_rate(gender, kg, cm, years), 1)
-
-                # Display the results for the
-                # current row in the CSV file.
-                print(gender, years, kg, cm, bmi, bmr, sep=",")
-
-
-def compute_age(birth):
-    """Compute and return a person's age in years.
-
-    param birth: a person's birthdate stored as
-        a string in this format: YYYY-MM-DD
-    """
-    birthdate = datetime.strptime(birth, "%Y-%m-%d").date()
-    now = date.today()
-    diff = now - birthdate
-    years = math.floor(diff.days / 365.25)
-    return years
-
-
-def kg_from_lb(lb):
-    """Convert a mass in pounds to kilograms."""
-    kg = lb * 0.45359237
-    return kg
-
-def cm_from_in(inch):
-    """Convert a length in inches to centimeters."""
-    cm = inch * 2.54
-    return cm
-
-
-def body_mass_index(weight, height):
-    """Calculate and return a person's body mass
-    index (bmi). weight and height must be in
-    kilograms and centimeters, respectively.
-    """
-    bmi = weight / (height ** 2) * 10000
-    return bmi
-
-
-def basal_metabolic_rate(gender, weight, height, age):
-    """Calculate and return a person's basal metabolic
-    rate (bmr). weight must be in kilograms, height
-    must be in centimeters, and age must be in years.
-    """
-    if gender.upper() == "F":
-        bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
-    else:
-        bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
-    return bmr
+        outname = make_text_filename(name, targ_lang)
+        write_text_file(outname, transl_text)
 
 
 # Call the main function so that
