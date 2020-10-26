@@ -1,30 +1,33 @@
-import random
-
-def main():
-    randnums = [16.2, 75.1, 52.3]
-    print(f"randnums {randnums}")
-
-    # Call the append_random_numbers function to
-    # add one random number to the randnums list.
-    append_random_numbers(randnums)
-    print(f"randnums {randnums}")
-
-    # Call the append_random_numbers function to add
-    # three random numbers to the randnums list.
-    append_random_numbers(randnums, 3)
-    print(f"randnums {randnums}")
+from words import prefix, suffix
+import pytest
 
 
-def append_random_numbers(ls, n=1):
-    """ Append n random numbers onto the list ls. The
-    random numbers are between 0 and 100, inclusive.
-    """
-    for _ in range(n):
-        num = random.uniform(0, 100)
-        rounded = round(num, 1)
-        ls.append(rounded)
+def test_prefix():
+    """Verify that the prefix function works correctly."""
+    assert prefix("", "") == ""
+    assert prefix("", "correct") == ""
+    assert prefix("clear", "") == ""
+    assert prefix("happy", "funny") == ""
+    assert prefix("cat", "catalog") == "cat"
+    assert prefix("dogmatic", "dog") == "dog"
+    assert prefix("jump", "joyous") == "j"
+    assert prefix("unwise", "ungrateful") == "un"
+    assert prefix("Disable", "dIstasteful") == "dis"
 
 
-# Call the main function so that
-# this program will start executing.
-main()
+def test_suffix():
+    """Verify that the suffix function works correctly."""
+    assert suffix("", "") == ""
+    assert suffix("", "correct") == ""
+    assert suffix("clear", "") == ""
+    assert suffix("angelic", "awesome") == ""
+    assert suffix("found", "profound") == "found"
+    assert suffix("ditch", "itch") == "itch"
+    assert suffix("happy", "funny") == "y"
+    assert suffix("tired", "fatigued") == "ed"
+    assert suffix("swimming", "FLYING") == "ing"
+
+
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["check_solution.py"])
