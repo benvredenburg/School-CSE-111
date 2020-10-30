@@ -154,7 +154,7 @@ def parse_formula(formula):
     """Convert a chemical formula for a molecule into a dictionary that
     stores the number of atoms of each element in the molecule. For
     example, this function will convert "H2O" to {"H":2, "O":1} and
-    "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
+    "PO4H2(CH2)12CH3" to {"P": 1, "O": 4, "H": 29, "C": 13}
     """
     def parse_quant(formula, index):
         quant = 1
@@ -228,5 +228,14 @@ def molar_mass(elem_dict):
     """
     # TODO: Write this function.
     pass
-    
+    # total_a_mass = ''
+    # index = 0
+    # for index in elem_dict:
+    #     elem_mass = index.keys * index.items
+    #     total_a_mass += elem_mass
+    #     if index < len(elem_dict):
+    #         index += 1
+    #         while index < len(elem_dict):
+    #             index += 1
 
+    #     return total_a_mass
