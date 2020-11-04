@@ -23,7 +23,7 @@ def main():
         args = {
             # The API key should remain private. Do not save
             # it to a public repository or public web site.
-            "api_key" : "The API key is in your I-Learn course.",
+            "api_key" : "iJv4sQyG4iyzYb6AEEYH",
 
             "start_date" : start.strftime("%Y-%m-%d"),
             "end_date" : end.strftime("%Y-%m-%d"),

@@ -254,7 +254,10 @@ def test_atomic_masses():
 def test_parse():
     """Test the chemistry.parse_formula function."""
     # TODO: write this function.
-    pass
+    assert parse_formula('H2O') == {'H': 2, 'O': 1}
+    assert parse_formula('Pb3Y4U10') == {'Pb': 3, 'Y': 4, 'U': 10}
+    assert parse_formula('C2(H3U4)5O2') == {'C': 2, 'H': 15, 'U': 20, 'O': 2}
+    assert (parse_formula("PO4H2(CH2)12CH3")) == {'P': 1, 'O': 4, 'H': 29, 'C': 13}
 
 
 def test_molar_mass():
