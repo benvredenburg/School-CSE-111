@@ -228,6 +228,7 @@ def molar_mass(elem_dict):
     """
     # TODO: Write this function.
 
+
     total_a_mass = []
     for symbol in elem_dict:
         elem_mass = periodic_table[symbol].atomic_mass * elem_dict[symbol]

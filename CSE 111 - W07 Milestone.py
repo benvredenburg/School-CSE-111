@@ -131,134 +131,148 @@ def test_names():
 def test_atomic_masses():
     """Test the chemistry.get_atomic_mass function."""
     # TODO: write this function.
-    assert get_atomic_mass("Ac") == approx(227)
-    assert get_atomic_mass("Ag") == approx(107.8682)
-    assert get_atomic_mass("Al") == approx(26.9815386)
-    assert get_atomic_mass("Am") == approx(243)
-    assert get_atomic_mass("Ar") == approx(39.948)
-    assert get_atomic_mass("As") == approx(74.9216)
-    assert get_atomic_mass("At") == approx(210)
-    assert get_atomic_mass("Au") == approx(196.966569)
-    assert get_atomic_mass("B") == approx(10.811)
-    assert get_atomic_mass("Ba") == approx(137.327)
-    assert get_atomic_mass("Be") == approx(9.012182)
-    assert get_atomic_mass("Bh") == approx(272)
-    assert get_atomic_mass("Bi") == approx(208.9804)
-    assert get_atomic_mass("Bk") == approx(247)
-    assert get_atomic_mass("Br") == approx(79.904)
-    assert get_atomic_mass("C") == approx(12.0107)
-    assert get_atomic_mass("Ca") == approx(40.078)
-    assert get_atomic_mass("Cd") == approx(112.411)
-    assert get_atomic_mass("Ce") == approx(140.116)
-    assert get_atomic_mass("Cf") == approx(251)
-    assert get_atomic_mass("Cl") == approx(35.453)
-    assert get_atomic_mass("Cm") == approx(247)
-    assert get_atomic_mass("Cn") == approx(285)
-    assert get_atomic_mass("Co") == approx(58.933195)
-    assert get_atomic_mass("Cr") == approx(51.9961)
-    assert get_atomic_mass("Cs") == approx(132.9054519)
-    assert get_atomic_mass("Cu") == approx(63.546)
-    assert get_atomic_mass("Db") == approx(268)
-    assert get_atomic_mass("Ds") == approx(281)
-    assert get_atomic_mass("Dy") == approx(162.5)
-    assert get_atomic_mass("Er") == approx(167.259)
-    assert get_atomic_mass("Es") == approx(252)
-    assert get_atomic_mass("Eu") == approx(151.964)
-    assert get_atomic_mass("F") == approx(18.9984032)
-    assert get_atomic_mass("Fe") == approx(55.845)
-    assert get_atomic_mass("Fl") == approx(289)
-    assert get_atomic_mass("Fm") == approx(257)
-    assert get_atomic_mass("Fr") == approx(223)
-    assert get_atomic_mass("Ga") == approx(69.723)
-    assert get_atomic_mass("Gd") == approx(157.25)
-    assert get_atomic_mass("Ge") == approx(72.64)
-    assert get_atomic_mass("H") == approx(1.00794)
-    assert get_atomic_mass("He") == approx(4.002602)
-    assert get_atomic_mass("Hf") == approx(178.49)
-    assert get_atomic_mass("Hg") == approx(200.59)
-    assert get_atomic_mass("Ho") == approx(164.93032)
-    assert get_atomic_mass("Hs") == approx(270)
-    assert get_atomic_mass("I") == approx(126.90447)
-    assert get_atomic_mass("In") == approx(114.818)
-    assert get_atomic_mass("Ir") == approx(192.217)
-    assert get_atomic_mass("K") == approx(39.0983)
-    assert get_atomic_mass("Kr") == approx(83.798)
-    assert get_atomic_mass("La") == approx(138.90547)
-    assert get_atomic_mass("Li") == approx(6.941)
-    assert get_atomic_mass("Lr") == approx(262)
-    assert get_atomic_mass("Lu") == approx(174.9668)
-    assert get_atomic_mass("Lv") == approx(293)
-    assert get_atomic_mass("Mc") == approx(288)
-    assert get_atomic_mass("Md") == approx(258)
-    assert get_atomic_mass("Mg") == approx(24.305)
-    assert get_atomic_mass("Mn") == approx(54.938045)
-    assert get_atomic_mass("Mo") == approx(95.96)
-    assert get_atomic_mass("Mt") == approx(276)
-    assert get_atomic_mass("N") == approx(14.0067)
-    assert get_atomic_mass("Na") == approx(22.98976928)
-    assert get_atomic_mass("Nb") == approx(92.90638)
-    assert get_atomic_mass("Nd") == approx(144.242)
-    assert get_atomic_mass("Ne") == approx(20.1797)
-    assert get_atomic_mass("Nh") == approx(284)
-    assert get_atomic_mass("Ni") == approx(58.6934)
-    assert get_atomic_mass("No") == approx(259)
-    assert get_atomic_mass("Np") == approx(237)
-    assert get_atomic_mass("O") == approx(15.9994)
-    assert get_atomic_mass("Og") == approx(294)
-    assert get_atomic_mass("Os") == approx(190.23)
-    assert get_atomic_mass("P") == approx(30.973762)
-    assert get_atomic_mass("Pa") == approx(231.03588)
-    assert get_atomic_mass("Pb") == approx(207.2)
-    assert get_atomic_mass("Pd") == approx(106.42)
-    assert get_atomic_mass("Pm") == approx(145)
-    assert get_atomic_mass("Po") == approx(209)
-    assert get_atomic_mass("Pr") == approx(140.90765)
-    assert get_atomic_mass("Pt") == approx(195.084)
-    assert get_atomic_mass("Pu") == approx(244)
-    assert get_atomic_mass("Ra") == approx(226)
-    assert get_atomic_mass("Rb") == approx(85.4678)
-    assert get_atomic_mass("Re") == approx(186.207)
-    assert get_atomic_mass("Rf") == approx(267)
-    assert get_atomic_mass("Rg") == approx(280)
-    assert get_atomic_mass("Rh") == approx(102.9055)
-    assert get_atomic_mass("Rn") == approx(222)
-    assert get_atomic_mass("Ru") == approx(101.07)
-    assert get_atomic_mass("S") == approx(32.065)
-    assert get_atomic_mass("Sb") == approx(121.76)
-    assert get_atomic_mass("Sc") == approx(44.955912)
-    assert get_atomic_mass("Se") == approx(78.96)
-    assert get_atomic_mass("Sg") == approx(271)
-    assert get_atomic_mass("Si") == approx(28.0855)
-    assert get_atomic_mass("Sm") == approx(150.36)
-    assert get_atomic_mass("Sn") == approx(118.71)
-    assert get_atomic_mass("Sr") == approx(87.62)
-    assert get_atomic_mass("Ta") == approx(180.94788)
-    assert get_atomic_mass("Tb") == approx(158.92535)
-    assert get_atomic_mass("Tc") == approx(98)
-    assert get_atomic_mass("Te") == approx(127.6)
-    assert get_atomic_mass("Th") == approx(232.03806)
-    assert get_atomic_mass("Ti") == approx(47.867)
-    assert get_atomic_mass("Tl") == approx(204.3833)
-    assert get_atomic_mass("Tm") == approx(168.93421)
-    assert get_atomic_mass("Ts") == approx(294)
-    assert get_atomic_mass("U") == approx(238.02891)
-    assert get_atomic_mass("V") == approx(50.9415)
-    assert get_atomic_mass("W") == approx(183.84)
-    assert get_atomic_mass("Xe") == approx(131.293)
-    assert get_atomic_mass("Y") == approx(88.90585)
-    assert get_atomic_mass("Yb") == approx(173.054)
-    assert get_atomic_mass("Zn") == approx(65.38)
-    assert get_atomic_mass("Zr") == approx(91.224)
+    assert get_atomic_mass("Ac")== 227
+    assert get_atomic_mass("Ag")== 107.8682
+    assert get_atomic_mass("Al")== 26.9815386
+    assert get_atomic_mass("Am")== 243
+    assert get_atomic_mass("Ar")== 39.948
+    assert get_atomic_mass("As")== 74.9216
+    assert get_atomic_mass("At")== 210
+    assert get_atomic_mass("Au")== 196.966569
+    assert get_atomic_mass("B")== 10.811
+    assert get_atomic_mass("Ba")== 137.327
+    assert get_atomic_mass("Be")== 9.012182
+    assert get_atomic_mass("Bh")== 272
+    assert get_atomic_mass("Bi")== 208.9804
+    assert get_atomic_mass("Bk")== 247
+    assert get_atomic_mass("Br")== 79.904
+    assert get_atomic_mass("C")== 12.0107
+    assert get_atomic_mass("Ca")== 40.078
+    assert get_atomic_mass("Cd")== 112.411
+    assert get_atomic_mass("Ce")== 140.116
+    assert get_atomic_mass("Cf")== 251
+    assert get_atomic_mass("Cl")== 35.453
+    assert get_atomic_mass("Cm")== 247
+    assert get_atomic_mass("Cn")== 285
+    assert get_atomic_mass("Co")== 58.933195
+    assert get_atomic_mass("Cr")== 51.9961
+    assert get_atomic_mass("Cs")== 132.9054519
+    assert get_atomic_mass("Cu")== 63.546
+    assert get_atomic_mass("Db")== 268
+    assert get_atomic_mass("Ds")== 281
+    assert get_atomic_mass("Dy")== 162.5
+    assert get_atomic_mass("Er")== 167.259
+    assert get_atomic_mass("Es")== 252
+    assert get_atomic_mass("Eu")== 151.964
+    assert get_atomic_mass("F")== 18.9984032
+    assert get_atomic_mass("Fe")== 55.845
+    assert get_atomic_mass("Fl")== 289
+    assert get_atomic_mass("Fm")== 257
+    assert get_atomic_mass("Fr")== 223
+    assert get_atomic_mass("Ga")== 69.723
+    assert get_atomic_mass("Gd")== 157.25
+    assert get_atomic_mass("Ge")== 72.64
+    assert get_atomic_mass("H")== 1.00794
+    assert get_atomic_mass("He")== 4.002602
+    assert get_atomic_mass("Hf")== 178.49
+    assert get_atomic_mass("Hg")== 200.59
+    assert get_atomic_mass("Ho")== 164.93032
+    assert get_atomic_mass("Hs")== 270
+    assert get_atomic_mass("I")== 126.90447
+    assert get_atomic_mass("In")== 114.818
+    assert get_atomic_mass("Ir")== 192.217
+    assert get_atomic_mass("K")== 39.0983
+    assert get_atomic_mass("Kr")== 83.798
+    assert get_atomic_mass("La")== 138.90547
+    assert get_atomic_mass("Li")== 6.941
+    assert get_atomic_mass("Lr")== 262
+    assert get_atomic_mass("Lu")== 174.9668
+    assert get_atomic_mass("Lv")== 293
+    assert get_atomic_mass("Mc")== 288
+    assert get_atomic_mass("Md")== 258
+    assert get_atomic_mass("Mg")== 24.305
+    assert get_atomic_mass("Mn")== 54.938045
+    assert get_atomic_mass("Mo")== 95.96
+    assert get_atomic_mass("Mt")== 276
+    assert get_atomic_mass("N")== 14.0067
+    assert get_atomic_mass("Na")== 22.98976928
+    assert get_atomic_mass("Nb")== 92.90638
+    assert get_atomic_mass("Nd")== 144.242
+    assert get_atomic_mass("Ne")== 20.1797
+    assert get_atomic_mass("Nh")== 284
+    assert get_atomic_mass("Ni")== 58.6934
+    assert get_atomic_mass("No")== 259
+    assert get_atomic_mass("Np")== 237
+    assert get_atomic_mass("O")== 15.9994
+    assert get_atomic_mass("Og")== 294
+    assert get_atomic_mass("Os")== 190.23
+    assert get_atomic_mass("P")== 30.973762
+    assert get_atomic_mass("Pa")== 231.03588
+    assert get_atomic_mass("Pb")== 207.2
+    assert get_atomic_mass("Pd")== 106.42
+    assert get_atomic_mass("Pm")== 145
+    assert get_atomic_mass("Po")== 209
+    assert get_atomic_mass("Pr")== 140.90765
+    assert get_atomic_mass("Pt")== 195.084
+    assert get_atomic_mass("Pu")== 244
+    assert get_atomic_mass("Ra")== 226
+    assert get_atomic_mass("Rb")== 85.4678
+    assert get_atomic_mass("Re")== 186.207
+    assert get_atomic_mass("Rf")== 267
+    assert get_atomic_mass("Rg")== 280
+    assert get_atomic_mass("Rh")== 102.9055
+    assert get_atomic_mass("Rn")== 222
+    assert get_atomic_mass("Ru")== 101.07
+    assert get_atomic_mass("S")== 32.065
+    assert get_atomic_mass("Sb")== 121.76
+    assert get_atomic_mass("Sc")== 44.955912
+    assert get_atomic_mass("Se")== 78.96
+    assert get_atomic_mass("Sg")== 271
+    assert get_atomic_mass("Si")== 28.0855
+    assert get_atomic_mass("Sm")== 150.36
+    assert get_atomic_mass("Sn")== 118.71
+    assert get_atomic_mass("Sr")== 87.62
+    assert get_atomic_mass("Ta")== 180.94788
+    assert get_atomic_mass("Tb")== 158.92535
+    assert get_atomic_mass("Tc")== 98
+    assert get_atomic_mass("Te")== 127.6
+    assert get_atomic_mass("Th")== 232.03806
+    assert get_atomic_mass("Ti")== 47.867
+    assert get_atomic_mass("Tl")== 204.3833
+    assert get_atomic_mass("Tm")== 168.93421
+    assert get_atomic_mass("Ts")== 294
+    assert get_atomic_mass("U")== 238.02891
+    assert get_atomic_mass("V")== 50.9415
+    assert get_atomic_mass("W")== 183.84
+    assert get_atomic_mass("Xe")== 131.293
+    assert get_atomic_mass("Y")== 88.90585
+    assert get_atomic_mass("Yb")== 173.054
+    assert get_atomic_mass("Zn")== 65.38
+    assert get_atomic_mass("Zr")== 91.224
 
 
 def test_parse():
     """Test the chemistry.parse_formula function."""
     # TODO: write this function.
     assert parse_formula('H2O') == {'H': 2, 'O': 1}
+    assert parse_formula('C6H6') == {'C': 6, 'H': 6}
     assert parse_formula('Pb3Y4U10') == {'Pb': 3, 'Y': 4, 'U': 10}
     assert parse_formula('C2(H3U4)5O2') == {'C': 2, 'H': 15, 'U': 20, 'O': 2}
-    assert (parse_formula("PO4H2(CH2)12CH3")) == {'P': 1, 'O': 4, 'H': 29, 'C': 13}
-
+    assert parse_formula("PO4H2(CH2)12CH3") == {'P': 1, 'O': 4, 'H': 29, 'C': 13}
+    assert parse_formula('(C2(NaCl)4H2)2C4Na') == {"C":8, "Na":9, "Cl":8, "H":4}
+    
+    with pytest.raises(FormulaError):
+        parse_formula('L')
+    with pytest.raises(FormulaError):
+        parse_formula('4H')
+    with pytest.raises(FormulaError):
+        parse_formula('H2L4')
+    with pytest.raises(FormulaError):
+        parse_formula('-H')
+    with pytest.raises(FormulaError):
+        parse_formula('(H2O')
+    with pytest.raises(FormulaError):
+        parse_formula('H2)O3')
 
 def test_molar_mass():
     """Test the chemistry.molar_mass function."""
