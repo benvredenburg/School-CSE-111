@@ -14,7 +14,7 @@ def main():
 
     # Display uniquew account types to user.
     account_types = df['accountType'].unique()
-    print('Uniquew account types:')
+    print('Unique account types:')
     print(len(account_types), account_types)
     # Create a line break between sections.
     print()
@@ -77,7 +77,7 @@ def main():
     total_usage_per_dwelling = dwelling_readings['usage'].sum()
 
     # Compute and display average usage per dwelling in 2018.
-    avg_usage = round(total_usage_per_dwelling / num_dwellings, 2)
+    avg_usage = round(total_usage_per_dwelling / num_dwellings, 5)
     print('Average water used by each dwelling in 2018:', avg_usage)
 
 main()
