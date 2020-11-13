@@ -114,7 +114,7 @@ def filter_for_meter(df, meter):
     """
     meter_filter = (df['meterNumber'] == meter)
     meter_filtered = df[meter_filter]
-    # print(meter_filtered)
+    df = meter_filtered
     
 
 
@@ -124,7 +124,7 @@ def filter_between_dates(df, start, end):
     """
     date_range_filter = (df['readDate'] >= start) & (df['readDate'] <= end)
     date_filter = df[date_range_filter]
-    # print(date_filter)
+    df = date_filter
     
 
 
