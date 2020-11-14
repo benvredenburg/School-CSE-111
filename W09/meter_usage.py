@@ -9,7 +9,8 @@ def main():
         df = pd.read_csv('W09water.csv', parse_dates=['readDate'])
 
         # Add a yearMonth column to the DataFrame.
-        add_year_month_column(df)
+        df = add_year_month_column(df)
+        
 
         # Add a medianUsage column to the DataFrame
 
@@ -17,14 +18,16 @@ def main():
 
         # Get a meter number from the user.
         meter = input('Please enter a meter number: ')
-        filter_for_meter(df, meter)
+        df = filter_for_meter(df, meter)
+        
         
         # Get start and end years from the user.
-        print('Please enter dates in YYYY-MM-DD format:')
+        print('Please enter dates in either YYYY-MM-DD, YYYY-MM, or YYYY format:')
         print()
         start = pd.to_datetime(input('enter start date: '))
         end = pd.to_datetime(input('enter end date: '))
-        filter_between_dates(df, start, end)
+        df = filter_between_dates(df, start, end)
+        print()
         
         # Convert the start and end years
         # from integers to date strings.
@@ -35,6 +38,10 @@ def main():
         # Define two plots.
 
         # Show all defined plots.
+
+        print(df)
+
+        
        
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
@@ -106,6 +113,7 @@ def add_year_month_column(df):
     """
 
     df['yearMonth'] = pd.to_datetime(df['readDate']).dt.to_period('M')
+    return df
 
 
 def filter_for_meter(df, meter):
@@ -115,16 +123,19 @@ def filter_for_meter(df, meter):
     meter_filter = (df['meterNumber'] == meter)
     meter_filtered = df[meter_filter]
     df = meter_filtered
-    
+    return df
+
 
 
 def filter_between_dates(df, start, end):
     """Return a new DataFrame that contains only the rows where
     the readDate is between the specified start and end dates.
     """
+    
     date_range_filter = (df['readDate'] >= start) & (df['readDate'] <= end)
     date_filter = df[date_range_filter]
     df = date_filter
+    return df
     
 
 

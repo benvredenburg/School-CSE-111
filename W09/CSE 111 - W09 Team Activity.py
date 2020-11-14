@@ -14,7 +14,7 @@ def main():
 
     # Display uniquew account types to user.
     account_types = df['accountType'].unique()
-    print('Uniquew account types:')
+    print('Unique account types:')
     print(len(account_types), account_types)
     # Create a line break between sections.
     print()
