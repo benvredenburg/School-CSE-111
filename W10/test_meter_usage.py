@@ -15,7 +15,6 @@ import sys
 #     monkeypatch.setattr(sys, "stdin", test_input)
 
 #     assert get_int("Please enter an integer: ", -5, 5) == 2
-    
 
 
 # def test_insert_after():
@@ -23,25 +22,21 @@ import sys
 #     correctly inserts elements into a list.
 #     """
 #     test_cases = [
-#         ([], "b", "a", ["a"]),
 #         (["a"], "a", "b", ["a", "b"]),
-#         (["a"], "b", "c", ["a", "c"]),
 #         (["a", "c"], "a", "b", ["a", "b", "c"]),
-#         (["a", "b"], "b", "d", ["a", "b", "d"]),
-#         (["a", "b"], "c", "e", ["a", "b", "e"])
+#         (["a", "b"], "b", "d", ["a", "b", "d"])
 #     ]
 #     for test_case in test_cases:
 #         alist = test_case[0]
 #         existing = test_case[1]
 #         toinsert = test_case[2]
-#         result = test_case[3]
-#         assert insert_after(alist, existing, toinsert) == None
-#         assert alist == result
-        
+#         expected = test_case[3]
+#         result = insert_after(alist, existing, toinsert)
+#         assert result == expected
 
 
 def test_add_year_month_column():
-    # Read the W09water.csv file and convert the
+    # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
     df = pd.read_csv("W09water.csv",
             dtype={"meterNumber":"str", "meterSize":"float32",
@@ -65,12 +60,12 @@ def test_add_year_month_column():
     for cell in df["yearMonth"]:
         year = cell.year
         month = cell.month
-        assert 2015 <= year <= 2019
-        assert 1 <= month <= 12
+        assert 2015 <= cell.year <= 2019
+        assert 1 <= cell.month <= 12
 
 
 def test_filter_for_meter():
-    # Read the W09water.csv file and convert the
+    # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
     df = pd.read_csv("W09water.csv",
             dtype={"meterNumber":"str", "meterSize":"float32",
@@ -93,7 +88,7 @@ def test_filter_for_meter():
 
 
 def test_filter_between_dates():
-    # Read the W09water.csv file and convert the
+    # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
     df = pd.read_csv("W09water.csv",
             dtype={"meterNumber":"str", "meterSize":"float32",
@@ -115,4 +110,4 @@ def test_filter_between_dates():
         assert start <= cell <= end
 
 
-pytest.main(["W09/test_meter_usage.py"])
+pytest.main(["W10/test_meter_usage.py"])
