@@ -13,7 +13,7 @@ def main():
 
         df['readDate'] = df['readDate'].dt.date
         
-        meter = 'M4103'
+        meter = input('Please enter a meter number: ').capitalize()
         df = filter_for_meter(df, meter)
 
         # Define a vertical bar plot from the DataFrame.

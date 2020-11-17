@@ -145,12 +145,6 @@ def filter_between_dates(df, start, end):
     date_filter = df[date_range_filter]
     df = date_filter
     return df
-
-    # print('Please enter dates in YYYY-MM-DD format:')
-    # print()
-    # start = pd.to_datetime(input('enter start date: '))
-    # end = pd.to_datetime(input('enter end date: '))
-    # df = filter_between_dates(df, start, end) 
     
 
 
