@@ -4,6 +4,7 @@ import pandas as pd
 
 def main():
     try:
+        # Create a line break between the terminal and the program.
         print()
         # Read the water.csv file and convert the
         # readDate column from a string to a datetime64.
@@ -15,97 +16,60 @@ def main():
         # Add a medianUsage column to the DataFrame.
         df = add_median_usage_column(df)
 
-        # Repeat as necessary.     
 
-        # Get a meter number from the user.
-        meter = input('Please enter a meter number ("q" to quit): ').capitalize()
-        
+        # Repeat as necessary.   
+        while True:
 
-        ''' 
-        If the user ever wants to pull dates by "YYYY/MM/DD" format, they can replace this section with the following
-        lines of code:
+            # Get a meter number from the user.
+            meter = input('Please enter a meter number ("q" to quit): ')
+            print()
+            if meter == "q":
+                break
 
-        start = pd.to_datetime(input('enter start date: '))
-        end = pd.to_datetime(input('enter end date: '))
+            ''' 
+            If the user ever wants to pull dates by "YYYY/MM/DD" format, they can replace this section with the following
+            lines of code:
 
-        continue to section marker below
-        '''
+            start = pd.to_datetime(input('enter start date: '))
+            end = pd.to_datetime(input('enter end date: '))
 
-        # Get start and end years from the user.
-        start_year = get_int('Please enter a starting year between 2015 and 2019, inclusive: ', 2015, 2019)
-        end_year = get_int(f'Please enter a starting year between {start_year} and 2019, inclusive: ', start_year, 2019)
+            Beginning of aforementioned section.
+            '''
 
-        # Convert the start and end years
-        # from integers to date strings.
-        start = pd.to_datetime(start_year, format='%Y')
-        end = pd.to_datetime(end_year + 1, format='%Y')   
+            # Get start and end years from the user.
+            start_year = get_int('Please enter a starting year between 2015 and 2019, inclusive: ', 2015, 2019)
+            end_year = get_int(f'Please enter a starting year between {start_year} and 2019, inclusive: ', start_year, 2019)
+            print()
 
-        ''' 
-        End of section from above lines of comments
-        '''   
-        
-        # Filter the DataFrame to the meter number
-        # and years specifified by the user. 
-        df = filter_between_dates(df, start, end)      
-        df = filter_for_meter(df, meter)   
+            # Convert the start and end years
+            # from integers to date strings.
+            start = pd.to_datetime(f'{start_year}-01-01')
+            end = pd.to_datetime(f'{end_year}-12-31')   
 
-        print(df)
-
-        # Define two plots.
-        show_meter_usage(df, meter)
-
-        # Show all defined plots.
-        show_comparison(df, meter)
-
-        plt.show()
-        print('Goodbye')
-
-        # meter = None
-        # while meter != 'Quit':
-        #     # Repeat as necessary.     
-
-        #     # Get a meter number from the user.
-        #     meter = input('Please enter a meter number ("q" to quit): ').capitalize()
+            ''' 
+            End of section from above lines of comments.
+            '''   
             
+            # Filter the DataFrame to the meter number
+            # and years specifified by the user. 
+            filtered_df = filter_between_dates(df, start, end)    
+            filtered_df = filter_for_meter(filtered_df, meter)  
+              
+            print()
+            print(filtered_df)
 
-        #     ''' 
-        #     If the user ever wants to pull dates by "YYYY/MM/DD" format, they can replace this section with the following
-        #     lines of code:
+            # Define two plots.
+            show_meter_usage(filtered_df, meter)
 
-        #     start = pd.to_datetime(input('enter start date: '))
-        #     end = pd.to_datetime(input('enter end date: '))
+            # Show all defined plots.
+            show_comparison(filtered_df, meter)
 
-        #     continue to section marker below
-        #     '''
-        #     if meter != 'Quit':
-        #         # Get start and end years from the user.
-        #         start_year = get_int('Please enter a starting year between 2015 and 2019, inclusive: ', 2015, 2019)
-        #         end_year = get_int(f'Please enter a starting year between {start_year} and 2019, inclusive: ', start_year, 2019)
+            plt.show()
+            print()
 
-        #         # Convert the start and end years
-        #         # from integers to date strings.
-        #         start = pd.to_datetime(start_year, format='%Y')
-        #         end = pd.to_datetime(end_year + 1, format='%Y')   
 
-        #         ''' 
-        #         End of section from above lines of comments
-        #         '''   
-                
-        #         # Filter the DataFrame to the meter number
-        #         # and years specifified by the user. 
-        #         df = filter_between_dates(df, start, end)      
-        #         df = filter_for_meter(df, meter)   
 
-        #         print(df)
-
-        #         # Define two plots.
-        #         show_meter_usage(df, meter)
-
-        #         # Show all defined plots.
-        #         show_comparison(df, meter)
-
-        #         plt.show()
-        # print('Goodbye')
+        
        
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
@@ -198,7 +162,8 @@ def filter_for_meter(df, meter):
     """Return a new DataFrame that contains only the rows
     where the meterNumber equals the parameter meter.
     """
-    meter_filter = (df['meterNumber'] == meter)
+    meterNum = 'M' + meter
+    meter_filter = (df['meterNumber'] == meterNum)
     meter_filtered = df[meter_filter]
     df = meter_filtered
     return df

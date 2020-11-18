@@ -37,7 +37,7 @@ def show_all_water_usage(df):
     print("Total usage for all account types (in 1000 gallons):")
     print(total_df)
 
-    barplot = total_df.plot.bar(y="sumUsage")
+    total_df.plot.bar(y="sumUsage")
     plt.tight_layout()
 
 
