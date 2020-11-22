@@ -15,7 +15,7 @@ periods = test_periods.periods_that_start_with_a_day
 
 # Create a document that will show the period name, temperature, wind speed, and detailed forecast for city.
 
-document = weather_html.create_document("forecast.html", "Rexburg, Idaho",
+document = weather_html.create_document("W03/forecast.html", "Rexburg, Idaho",
     [weather_html.PERIOD_NAME, weather_html.ICON, weather_html.TEMPERATURE,weather_html.WIND, weather_html.DETAILED_FORECAST])
 
 # Define loop parameters.
