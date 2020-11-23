@@ -6,7 +6,7 @@ def main():
     try:
         # Read the students.csv file and convert the
         # birthdate column from a string to a datetime64.
-        df = pd.read_csv("W11students.csv", parse_dates=["birthdate"])
+        df = pd.read_csv("W11students2.csv", parse_dates=["birthdate"])
 
         # Create the cutoff date to be Oct 1 during
         # the current year and print the cutoff date.
