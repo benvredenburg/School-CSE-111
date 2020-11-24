@@ -8,7 +8,7 @@ product = {}
 
 with open('W02products.csv', 'rt') as infile:
 
-# Use the csv module to create a reader objext that will read from the opened file.
+# Use the csv module to create a reader object that will read from the opened file.
 
     reader = csv.reader(infile, delimiter=',')
 
