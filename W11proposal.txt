@@ -1,0 +1,41 @@
+Significant Program Proposal
+
+(This is a proposal. All proposals are written with our best knowledge
+at the beginning of a project. As we progress from the beginning to the
+end of a project, we gain more knowledge, and some of the ideas we
+proposed change. This is part of completing any project and is fine.
+However, we still must write a proposal so that our teachers or
+supervisors know what we intend to do. Please answer each of the
+following questions to the best of your knowledge.)
+
+1. What is the title of your program?
+
+Alarm_Metrics
+
+2. What real world problem will your program address or help to solve?
+
+Creating a program to track metrics for a company alarm response data 
+This will be a specific use program for a hypothetical company based on previous work metrics 
+
+We will be demonstrating this with a large csv file with varied data the the user can use to filter data to find trends.
+ 
+
+3. What will you learn from developing this program?
+
+How to more effectively use pandas and matplotlib. Both are areas we have struggled with and would like to turn into a strength instead of a weakness.
+Additionally, we will be working on this as a team to simulate a real world working relationship to help facilitate working as a team.
+
+4. What Python modules will your program use? (Some examples are: csv,
+datetime, functools, matplotlib, math, pandas, pytest, random, requests,
+and tkinter.)
+
+pandas, pytest, matplotlib
+
+5. Will you separate your Python program into functions that each
+perform a single task?
+
+We intend to write a program with multiple functions
+
+6. Will you write test functions to test many of your program functions?
+
+Yes
