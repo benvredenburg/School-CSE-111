@@ -18,6 +18,9 @@ Creating a program to track metrics for a company alarm response data
 This will be a specific use program for a hypothetical company based on previous work metrics 
 
 We will be demonstrating this with a large csv file with varied data the the user can use to filter data to find trends.
+
+The previous program that Benjamin used in order to audit this data took several hours to compile the audits and parse through the data. We want to recreate this program and have it run in a fraction of the time.
+
  
 
 3. What will you learn from developing this program?
