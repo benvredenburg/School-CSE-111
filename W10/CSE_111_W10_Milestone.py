@@ -57,6 +57,7 @@ def main():
               
             print()
             print(filtered_df)
+            print(df.dtypes)
 
             # Define two plots.
             show_meter_usage(filtered_df, meter)
