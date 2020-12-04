@@ -34,7 +34,7 @@ def main():
             end = pd.to_datetime(input('enter end date: '))
 
             Beginning of aforementioned section.
-            '''
+            
 
             # Get start and end years from the user.
             start_year = get_int('Please enter a starting year between 2015 and 2019, inclusive: ', 2015, 2019)
@@ -46,7 +46,7 @@ def main():
             start = pd.to_datetime(f'{start_year}-01-01')
             end = pd.to_datetime(f'{end_year}-12-31')   
 
-            ''' 
+            
             End of section from above lines of comments.
             '''   
             
