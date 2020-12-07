@@ -82,6 +82,7 @@ def main():
         
 
         print(df)
+        print(grouped_df)
         show_alarms_by_date(grouped_df)
         plt.show()
         # print(df.dtypes)
