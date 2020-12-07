@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+
 def main():
     try:
 
@@ -11,18 +13,18 @@ def main():
         df = pd.read_csv('finalalarms.csv')
 
         # Convert date column to datetime64.
-        df['date'] = pd.to_datetime(df['date'])
+        df['date'] = pd.to_datetime(df['date']).dt.date
         df['building'] = df['building'].astype(int)
 
         # Filter by date range. 
-        '''Always necessary'''
-        '''limit of one week for user'''
 
         # Ask user for a date range.
 
         print('Please do not choose a date range over one week.')
-        start = pd.to_datetime(input('enter start date: '))
-        end = pd.to_datetime(input('enter end date: '))
+        print()
+        start = pd.to_datetime(input('enter start date in YYYY-MM-DD format: '))
+        end = pd.to_datetime(input('enter end date in YYYY-MM-DD format: '))
+        print()
 
         # Convert the start and end years
         # from integers to date strings.
@@ -66,7 +68,8 @@ def main():
                     # pass
                     
             elif choice1 == 'N':
-                print(df)
+                grouped_df = group_by(df)
+                
                 break
 
             elif choice1 == 'Q':
@@ -78,8 +81,9 @@ def main():
             
         
 
-
-        # plt.show()
+        print(df)
+        show_alarms_by_date(grouped_df)
+        plt.show()
         # print(df.dtypes)
         
     except RuntimeError as ex:
@@ -128,31 +132,21 @@ def filter_by_type(df, alarmType):
 
     # pass
 
-# Start here.
+def group_by(df):
+    group = df.groupby("date")
+    df = group.aggregate(count=("date", "count"))
+    return df
 
-def show_alarms_by_building(bldg_df, building):
-    
-    # barplot = bldg_df.plot.bar(x='date', legend=False)
-    # barplot.set_title(f'Number of alarms for building #{building}')
-    # barplot.set_xlabel('')
-    
-    # plt.tight_layout()
 
-    plot = bldg_df.plot.line(x='date')
-    plot.set_title(f"Number of alarms for building #{building}")
-    plot.set_xlabel("")
+def show_alarms_by_date(grouped_df):
+    counts = list(grouped_df["count"])
+    # print(counts)
+
+    barplot = grouped_df.plot.bar(y="count", legend=False)
+    barplot.set_title('Number of alarms by date: ')
+    barplot.set_xlabel(counts,
+              loc="center")
+        
     plt.tight_layout()
-
-    # pass
-def show_alarms_by_operator(op_df, operator):
-    plot = op_df.plot.line(x='date')
-    plot.set_title(f"Number of alarms for operator: {operator}")
-    plot.set_xlabel("")
-    plt.tight_layout()
-    # pass
-def show_alarms_by_type():
-    pass
-def show_alarms_by_date():
-    pass
 
 main()
