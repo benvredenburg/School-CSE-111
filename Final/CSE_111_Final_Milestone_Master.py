@@ -10,10 +10,10 @@ def main():
         print()
 
         # Read the finalalarms.csv file and convert it to a dataframe.
-        df = pd.read_csv('finalalarms.csv')
+        df = pd.read_csv('Final/finalalarms.csv', parse_dates=['date'])
 
         # Convert date column to datetime64.
-        df['date'] = pd.to_datetime(df['date']).dt.date
+        # df['date'] = pd.to_datetime(df['date']).dt.date
         df['building'] = df['building'].astype(int)
 
         # Filter by date range. 
@@ -138,7 +138,6 @@ def group_by(df):
     df = group.aggregate(count=("date", "count"))
     return df
 
-
 def show_alarms_by_date(grouped_df):
     counts = list(grouped_df["count"])
     # print(counts)
@@ -150,4 +149,5 @@ def show_alarms_by_date(grouped_df):
         
     plt.tight_layout()
 
-main()
+if __name__ == "__main__":
+    main()
