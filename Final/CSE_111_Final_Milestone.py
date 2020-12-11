@@ -10,10 +10,9 @@ def main():
         print()
 
         # Read the finalalarms.csv file and convert it to a dataframe.
-        df = pd.read_csv('Final/finalalarms.csv')
+        df = pd.read_csv('Final/finalalarms.csv', parse_dates=['date'])
 
-        # Convert date column to datetime64 and building column into int.
-        df['date'] = pd.to_datetime(df['date']).dt.date
+        # Convert building column into int.
         df['building'] = df['building'].astype(int)
 
          

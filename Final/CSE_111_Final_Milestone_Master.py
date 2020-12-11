@@ -1,7 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
+''''
+Note for user:
+I recommend that if you are going to use every filter while testing this 
+program that you use the filter what you are looking for in the csv file
+first so you don't end up with empty data frames. For example, filtering
+for a wide date range of 2018-01-01 - 2018-12-13, building: 52, operator: 
+Joseph, and alarm type: server, gave me zero results because Joseph 
+cleared 0 server alarms at building 52 throughout the entire year.
+'''
 
 def main():
     try:
@@ -10,10 +18,9 @@ def main():
         print()
 
         # Read the finalalarms.csv file and convert it to a dataframe.
-        df = pd.read_csv('Final/finalalarms.csv')
+        df = pd.read_csv('Final/finalalarms.csv', parse_dates=['date'])
 
-        # Convert date column to datetime64 and building column into int.
-        df['date'] = pd.to_datetime(df['date']).dt.date
+        # Convert building column into int.
         df['building'] = df['building'].astype(int)
 
          
