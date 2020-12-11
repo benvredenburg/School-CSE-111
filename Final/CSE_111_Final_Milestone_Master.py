@@ -41,13 +41,14 @@ def main():
             print()
 
             if choice1 == 'Y':
-                print("Filter options are:  OPERATOR,  BUILDING number, and  alarm TYPE. ")
+                print("Filter options are:\n\nOPERATOR\nBUILDING\nTYPE\n")
                 filter_choice = input('Which filter would you like to apply? ').capitalize()
                 print()
                 if filter_choice == 'Building':
 
                     # Ask user for a building to show.
-                    building = int(input('which building (1 - 300) would you like to show? '))
+                    building = int(input('Which building (1 - 300) would you like to show? '))
+                    print()
 
                     # Filter by building.
                     df = filter_by_building(df, building)
@@ -55,7 +56,8 @@ def main():
                 elif filter_choice == 'Operator':
             
                     # Ask user for an operator to show.
-                    operator = input('Which operator would you like to see?\nAustin\nBenjamin\nJoseph\nMark\n').capitalize()
+                    operator = input('Which operator would you like to see? \n\nAustin\nBenjamin\nJoseph\nMark\n\nChoice: ').capitalize()
+                    print()
 
                     # Filter by operator.
                     df = filter_by_operator(df, operator)
@@ -63,7 +65,8 @@ def main():
                 elif filter_choice == 'Type':
 
                     # Ask user for an alarm type.
-                    alarmType = input('Which alarm type would you like to see?\n\nDoor Forced\nFire\nServer\n').upper()
+                    alarmType = input('Which alarm type would you like to see?\n\nDoor Forced\nFire\nServer\n\nChoice: ').upper()
+                    print()
 
                     # Filter by alarm type.
                     df = filter_by_type(df, alarmType)
@@ -72,6 +75,10 @@ def main():
             # for the building, operator, and/or alarm type the user filtered by.
             elif choice1 == 'N':
                 grouped_df = group_by(df)
+                print(df)
+                print(grouped_df)
+                show_alarms_by_date(grouped_df)
+                plt.show()
                 break
             
             # End program if user chooses to quit.
@@ -83,16 +90,14 @@ def main():
             else:
                 print('Invalid choice.')
         
-        # Display the dataframe, number of alarms for applied filters by day, and a graph
-        # of the information in the latter.
-        print(df)
-        print(grouped_df)
-        show_alarms_by_date(grouped_df)
-        plt.show()
+        
+        
         
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
 
+    except IndexError as ex:
+        print("Filtered results are too narrow, and resulted in a data frame with no information.")
 
 def filter_between_dates(df, start, end):
     """Return a new DataFrame that contains only the rows where
