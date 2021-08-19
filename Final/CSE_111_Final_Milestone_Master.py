@@ -18,7 +18,7 @@ def main():
         print()
 
         # Read the finalalarms.csv file and convert it to a dataframe.
-        df = pd.read_csv('c:/0-Git/CSE-111/Final/finalalarms.csv', parse_dates=['date'])
+        df = pd.read_csv('CSE-111/Final/finalalarms.csv', parse_dates=['date'])
 
         # Convert building column into int.
         df['building'] = df['building'].astype(int)

@@ -8,7 +8,7 @@ def main():
         print()
         # Read the water.csv file and convert the
         # readDate column from a string to a datetime64.
-        df = pd.read_csv('W09water.csv', parse_dates=['readDate'])
+        df = pd.read_csv('CSE-111\W09water.csv1000', parse_dates=['readDate'])
 
         # Add a yearMonth column to the DataFrame.
         df = add_year_month_column(df)
